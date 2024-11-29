@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginView from '../views/auth/LoginView.vue'
-import TestComponent from '@/views/TestComponent.vue';
+import AlunoView from '@/views/AlunoView.vue';
 
 const routes = [
   {
@@ -12,6 +12,12 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: LoginView,
+  },
+  {
+    path: '/aluno',
+    name: 'Aluno',
+    component: AlunoView,
+    props: true
   },
 ];
 
