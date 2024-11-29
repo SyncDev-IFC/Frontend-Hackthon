@@ -5,8 +5,8 @@ import TestComponent from '@/views/TestComponent.vue';
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: HomeView,
+    name: '',
+    component: TestComponent,
   },
   {
     path: '/login',
