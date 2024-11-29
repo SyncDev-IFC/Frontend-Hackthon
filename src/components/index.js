@@ -1,6 +1,6 @@
 import loginComponent from "./auth/loginComponent.vue"
-import HeaderView from "./HeaderView.vue"
+import CardAluno from "./CardAluno.vue"
 export {
     loginComponent,
-    HeaderView
+    CardAluno,
 }
