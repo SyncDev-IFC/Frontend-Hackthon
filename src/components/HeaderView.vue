@@ -1,23 +1,30 @@
 <script setup>
-// const props = defineProps({
-//     foto: {
-//     type: Image,
-//     required: true,
-//     default: '../assets/logo.png'
-//   }
-// })
+import { ref } from 'vue'
 
+const mostrar = ref(false)
+
+const toggleMenu = () => {
+  mostrar.value = !mostrar.value;
+}
 </script>
+
 <template>
   <header>
     <div class="nav-links">
-      <h1>Ordernar por</h1>
-      <img src="/home/joao/Frontend-Hackthon/src/assets/Vector 13.png" alt="">
+      <h1>Ordenar por</h1>
+      <img src="/home/joao/Frontend-Hackthon/src/assets/Vector 13.png" alt="Menu" @click="toggleMenu" class="menu-button">
+      <div v-show="mostrar" class="menu">
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+      </div>
       <img class="foto" src="/home/joao/Frontend-Hackthon/src/assets/Captura de tela 2024-11-29 083946.png" alt="">
- 
     </div>
   </header>
 </template>
+
 
 <style scoped>
 .nav-links {
@@ -30,9 +37,45 @@
   font-size: 13px;
   align-items: center;
   gap: 10px;
-  
 }
-.foto{
-    margin-left: 18px;
+
+.foto {
+  margin-left: 18px;
+}
+
+.menu-button {
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 10%;
+  text-align: left;
+  width: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(255, 255, 255);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 0px 45px -10px rgba(148,148,148,1);
+  transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+.menu.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu a {
+  color: black; 
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc; 
+}
+
+.menu a:last-child {
+  border-bottom: none; 
 }
 </style>

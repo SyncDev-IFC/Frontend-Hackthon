@@ -1,5 +1,6 @@
 <script setup>
-import HeaderView from '@/components/HeaderView.vue';
+import {HeaderView} from '@/components';
+
 </script>
 
 
