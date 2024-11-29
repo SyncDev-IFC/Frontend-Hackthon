@@ -49,7 +49,7 @@ const toggleMenu = () => {
 
 .menu {
   position: absolute;
-  top: 20%;
+  top: 12%;
   text-align: left;
   width: 200px;
   padding: 10px;

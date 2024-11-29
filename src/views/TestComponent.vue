@@ -1,5 +1,6 @@
 <script setup>
 import {CardAluno} from '@/components';
+import { CardHeader } from '@/components';
 
 import { ref } from 'vue'
 
@@ -15,6 +16,7 @@ const alunos = ref([
 
 
 <template>
+  <CardHeader/>
 <CardAluno 
 v-for="aluno in alunos" :key="aluno"
 :nome="aluno.nome"
