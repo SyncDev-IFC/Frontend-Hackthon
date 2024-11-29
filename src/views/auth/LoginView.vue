@@ -3,7 +3,7 @@ import {loginComponent} from "@/components"
 </script>
 <template>  
 <div class="container">
-<img src="./../assets/muiePensando.png" alt="">
+<img src="@/assets/muiePensando.png" alt="">
 <loginComponent />
 </div>
 </template>

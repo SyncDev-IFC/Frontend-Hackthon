@@ -92,10 +92,15 @@
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    background-color: #000000;
+    background-color: #7e7e7e;
     color: white;
     border: none;
     border-radius: 30px;
+  }
+
+  .btnLogin:hover{
+    background-color: #000000;
+    transition: all 0.5s ease;
   }
   
   .btnSenha {
