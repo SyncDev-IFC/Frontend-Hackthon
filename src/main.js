@@ -10,6 +10,7 @@ import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import '@mdi/font/css/materialdesignicons.min.css';
 
+
 // Components
 import App from './App.vue'
 import router from './router'
