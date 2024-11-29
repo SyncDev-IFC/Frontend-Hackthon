@@ -5,8 +5,8 @@ import AlunoView from '@/views/AlunoView.vue';
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: HomeView,
+    name: '',
+    component: TestComponent,
   },
   {
     path: '/login',
