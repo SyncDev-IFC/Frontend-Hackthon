@@ -11,15 +11,6 @@ const toggleMenu = () => {
 <template>
   <header>
     <div class="nav-links">
-      <h1>Ordenar por</h1>
-      <img src="./../../assets/seta.png" alt="Menu" @click="toggleMenu" class="menu-button">
-      <div v-show="mostrar" class="menu">
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-      </div>
       <img class="foto" src="./../../assets/user.png" alt="">
     </div>
   </header>

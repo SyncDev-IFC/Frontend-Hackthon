@@ -4,10 +4,9 @@ import AlunoView from '@/views/AlunoView.vue';
 import HomeView from '../views/HomeView.vue';
 import TurmasView from '@/views/turmas/TurmasView.vue';
 import TurmasEspView from '@/views/turmas/TurmasEspView.vue';
-import TestComponent from '@/views/TestComponent.vue';
 import TesteInterligacao from '@/views/TesteInterligacao.vue';
 import { useAuthStore } from '@/stores/auth'; 
-
+import TurmaAluno from '@/views/turmas/TurmaAluno.vue';
 const routes = [
   {
     path: '/',
@@ -43,10 +42,11 @@ const routes = [
     name: 'Turma',
     component: TurmasEspView, 
   },
+  
   {
-    path: '/test',
+    path: '/a',
     name: 'Test',
-    component: TestComponent,
+    component: TurmaAluno,
   }
 ];
 
