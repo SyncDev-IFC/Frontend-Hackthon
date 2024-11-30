@@ -23,7 +23,8 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: HomeView,
+    component: TurmasView,
+    props: true,
     beforeEnter: (to, from, next) => {
       const authStore = useAuthStore();
       if (authStore.isLogged) {
@@ -46,14 +47,10 @@ const routes = [
     props: true
   },
   {
-    path: '/turmas',
-    name: 'Turmas',
-    component: TurmasView,
-  },
-  {
-    path: '/turma',
+    path: '/turma/:id',
     name: 'Turma',
     component: TurmasEspView, 
+    props: true
   },
   {
     path: '/entrar-conselho',

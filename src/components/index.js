@@ -21,7 +21,6 @@ export {
     notasComponent,
     CardAluno,
     CardHeader,
-    CardHistorico,
     cardTurma,
     CardTurmaEsp,
     OcorrenciaComponent,

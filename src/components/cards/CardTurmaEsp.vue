@@ -12,7 +12,7 @@ const props = defineProps({
         required: true,
     },
     image: {
-        type: Image, 
+        type: String, 
     },
     cor: {
         type: String,
@@ -21,15 +21,15 @@ const props = defineProps({
 </script>
 
 <template>
-<div class="card" :style="{ backgroundColor: props.cor }">
+<div class="card" :style="{ backgroundColor: props?.cor }">
     <div class="informacoes">
-        <div class="rightTopCorner">  <router-link to ="/" class="router"> <ArrowLeft size="30"></ArrowLeft></router-link>
-        <p class="materia">{{ props.materia }}</p></div>
+        <div class="rightTopCorner">  <router-link to ="/home" class="router"> <ArrowLeft size="30"></ArrowLeft></router-link>
+        <p class="materia">{{ props?.materia }}</p></div>
      
-        <h1>{{ props.turma }}</h1>    
+        <h1>{{ props?.turma }}</h1>    
         </div>
     <div class="img">
-        <img :src="props.image" alt="">
+        <img :src="props?.image" alt="">
     </div>
 </div>
 </template>
@@ -45,7 +45,7 @@ const props = defineProps({
 }
 .card{
     display: flex;
-    width: 90vw;
+    width: 70vw;
     border: 6px solid;
     height: 25vh;
     border-radius: 27px; 
@@ -76,9 +76,9 @@ h1{
     justify-content: end;
 }
 .img>img{
-    height: 19%; 
-    position: absolute; 
-    margin-top: -2px;
+    height: 25%;
+    position: absolute;
+    margin-top: -7.5px;
 
 }
 @media only screen and (max-width: 1200px) {

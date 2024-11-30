@@ -2,15 +2,16 @@ import axios from "axios";
 
 class TurmaService {
     // Obter todas as turmas
-    async getAllTurmas() {
-        const response = await axios.get('turmas/');
-        return response.data;
+    async getTurmas() {
+        const {data} = await axios.get('turmas/');
+        console.log(data)
+        return data.results;
     }
 
     // Obter uma turma específica por ID
-    async getTurmaById(id) {
-        const response = await axios.get(`turmas/${id}`);
-        return response.data;
+    async getTurma(id) {
+        const { data } = await axios.get(`turmas/${id}`);
+        return data;
     }
 
     // Criar uma nova turma

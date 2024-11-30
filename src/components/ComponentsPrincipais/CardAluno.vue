@@ -26,8 +26,10 @@ const props = defineProps({
       <div class="info">
         <h4>{{ props.nome }}</h4>
         <h5>{{ props.email }}</h5>
+        <!-- <h4>Ana Clara Gomes</h4>
+        <h5>gomes06anaclara@gmail.com</h5> -->
       </div>
-        <button class="button">Ver aluno</button></div>
+        <button class="button"  @click="">Ver aluno</button></div>
   </div>
 </template>
 
@@ -36,9 +38,9 @@ const props = defineProps({
   background-color: white;
   color: white;
   border-radius: 27px;
-  width: 30%;
+  width: 400px;
   padding: 20px;
-  height: 20%;
+  height: 15  0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

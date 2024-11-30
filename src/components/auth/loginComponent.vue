@@ -41,7 +41,7 @@ async function handleLogin() {
     const response = await authStore.LoginUser(credentials);
 
     if (response) {
-      router.push('/');
+      router.push('/home');
     }
   } catch (error) {
     console.error('Erro no login:', error);

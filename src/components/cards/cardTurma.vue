@@ -13,11 +13,15 @@ const props = defineProps({
     },
     cor: {
         type: String
+    }, 
+    id: {
+        type: Number,
+        required: true,
     }
 })
 </script>
 <template>
-<div class="card" :style="{ borderColor: props.cor }">
+<router-link class="card" :style="{ borderColor: props.cor }" :to="`/turma/${props.id}`">
     <div class="informacoes">
     <p>{{ props.materia }}</p>
     <h1>{{ props.turma }}</h1>
@@ -25,7 +29,7 @@ const props = defineProps({
     <div class="img">
     <img :src="props.image" alt="">
 </div>
-</div>
+</router-link>
 </template>
 <style scoped>
 .card{
@@ -36,6 +40,8 @@ const props = defineProps({
     border-radius: 27px; 
     margin: auto;
     margin-top: 30px;
+    text-decoration: none;
+    color: black;
 }
 h1{
     font-size: 60px;
