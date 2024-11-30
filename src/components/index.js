@@ -3,10 +3,12 @@ import alunoComponent from "./aluno/alunoComponent.vue"
 import notasComponent from "./aluno/notasComponent.vue"
 import CardAluno from "./ComponentsPrincipais/CardAluno.vue"
 import CardHeader from "./ComponentsPrincipais/CardHeader.vue"
+import CardHistorico from "./ComponentsPrincipais/CardHistorico.vue"
 export {
     loginComponent,
     alunoComponent,
     notasComponent,
     CardAluno,
     CardHeader,
+    CardHistorico,
 }

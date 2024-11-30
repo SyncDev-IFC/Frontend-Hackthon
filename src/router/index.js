@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginView from '../views/auth/LoginView.vue'
 import AlunoView from '@/views/AlunoView.vue';
+import HomeView from '@/views/HomeView.vue';
 
 const routes = [
   {
