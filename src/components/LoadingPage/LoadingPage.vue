@@ -3,10 +3,8 @@
 
 <template>
   <div class="loading-page">        
-      <div class="body">
-          <img src="https://i.ibb.co/FVnJHfy/logo-freelle.png" alt="Loading Logo">
-      </div>
-    </div>
+    <div class="spinner"></div>
+  </div>
 </template>
 
 <style scoped>
@@ -23,14 +21,17 @@
   align-items: center;
 }
 
-.body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.spinner {
+  border: 8px solid #f3f3f3; /* Cor de fundo do spinner */
+  border-top: 8px solid #3498db; /* Cor da parte superior que gira */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
 }
 
-img {
-  max-width: 100%;
-  width: 150px;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>

@@ -42,7 +42,7 @@ const toggleMenu = () => {
       </div>
     </div>
 </div>
-   
+  
 </template>
 
 <style scoped>

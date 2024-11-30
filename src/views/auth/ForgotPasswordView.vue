@@ -3,7 +3,7 @@ import {forgotComponent} from "@/components"
 </script>
 <template>  
 <div class="container">
-<img src="@/assets/muiePensando.png" alt="">
+<img src="https://i.ibb.co/dbGN8n2/Group-173.png" alt="">
 <forgotComponent />
 </div>
 </template>

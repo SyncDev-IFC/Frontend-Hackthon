@@ -1,70 +1,55 @@
 <script setup>
+import { onMounted } from 'vue';
+import { useAlunoStore } from '@/stores/aluno'; 
 import { CardAluno, CardTurmaEsp, CardHeader } from '@/components';
-import turma from '@/services/turma';
 
-const alunos = [
-    {nome : "João Vitor Gomes", email : "j.vitor10gomes@gmail.com"},
-    {nome : "Lucas Liebl", email : "lucas.liebl@gmail.com"},
-    {nome : "Lucas Liebl", email : "lucas.liebl@gmail.com"},
-    {nome : "Lucas Liebl", email : "lucas.liebl@gmail.com"},
-    {nome : "Lucas Liebl", email : "lucas.liebl@gmail.com"},
-    {nome : "Lucas Liebl", email : "lucas.liebl@gmail.com"},
-    {nome : "Lucas Liebl", email : "lucas.liebl@gmail.com"}
-]
-const turmas = [
-    {materia : "Matematica", turma: "3info1",  cor: '#00E88F', image:'' }
-]
+const alunoStore = useAlunoStore();
 
-import { ref } from 'vue'
+onMounted(() => {
+  alunoStore.getAlunos(); 
+});
 
-const mostrar = ref(false)
+const mostrar = ref(false);
 
 const toggleMenu = () => {
   mostrar.value = !mostrar.value;
-}
-
+};
 </script>
 
 <template>
-    <CardHeader/>
-    <CardTurmaEsp
-v-for="turma in turmas" :key="turma"
-:materia="turma.materia"
-:turma="turma.turma"
-:cor="turma.cor"
-:image="turma.image"
-/>
-
-<div class="nav-links">
-   <div class="conta">
-    <h1>Alunos</h1>
-   <div class="ordem">
+  <CardHeader/>
+  <CardTurmaEsp
+    v-for="turma in turmas" 
+    :key="turma.turma" 
+    :materia="turma.materia"
+    :turma="turma.turma"
+    :cor="turma.cor"
+    :image="turma.image"
+  />
+  
+  <div class="nav-links">
+    <div class="conta">
+      <h1>Alunos</h1>
+      <div class="ordem">
         <h1>Ordenar por</h1>
-    <img src="./../../assets/seta.png" alt="Menu" @click="toggleMenu">
-      <div v-show="mostrar" class="menu">
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
+        <img src="./../../assets/seta.png" alt="Menu" @click="toggleMenu">
+        <div v-show="mostrar" class="menu">
+          <a href="#">Abaxio da Nota</a>
+          <a href="#">Acima da nota</a>
+        </div>
       </div>
-   </div>
-   </div>
-    
-    
-</div>
+    </div>
+  </div>
 
-
-<div class="alunos">
-
-<CardAluno
-v-for="aluno in alunos" :key="aluno"
-:nome="aluno.nome"
-:email="aluno.email"
-/>
-
-</div>
-
+  <!-- Exibindo os alunos -->
+  <div class="alunos">
+    <CardAluno
+      v-for="aluno in alunoStore.alunos" 
+      :key="aluno.email" 
+      :nome="aluno.nome"
+      :email="aluno.email"
+    />
+  </div>
 </template>
 
 <style scoped> 
@@ -80,14 +65,13 @@ v-for="aluno in alunos" :key="aluno"
   display: flex;
   flex-direction: row;
   padding:10px;
-    top: 40%;
+  top: 40%;
   width: 100%;
   font-size: 13px;
   align-items: center;
   gap: 10px;
   margin: 20px;
   text-align: center;
-  
 }
 .conta{
     display: flex;
@@ -95,7 +79,6 @@ v-for="aluno in alunos" :key="aluno"
     width: 100%;
     gap: 70%;
 }
-
 .menu {
   position: absolute;
   top: 58%;
@@ -112,12 +95,10 @@ v-for="aluno in alunos" :key="aluno"
   background-color: white;
   z-index: 4;
 }
-
 .menu.show {
   opacity: 1;
   transform: translateY(0);
 }
-
 .menu a {
   color: black; 
   text-decoration: none;
@@ -125,7 +106,6 @@ v-for="aluno in alunos" :key="aluno"
   padding: 10px 0;
   border-bottom: 1px solid #ccc; 
 }
-
 .menu a:last-child {
   border-bottom: none; 
 }

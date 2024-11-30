@@ -5,7 +5,7 @@ import CardAluno from "./ComponentsPrincipais/CardAluno.vue"
 import CardHeader from "./ComponentsPrincipais/CardHeader.vue"
 import cardTurma from "./cards/cardTurma.vue"
 import CardTurmaEsp from "./cards/CardTurmaEsp.vue"
-import OcorrenciaComponent from "../components/aluno/ocorrenciaComponent.vue"
+import ocorrenciaComponent from "../components/aluno/ocorrenciaComponent.vue"
 import LoadingPage from "./LoadingPage/LoadingPage.vue"
 import NotConselho from "./ConselhoPage/NotConselho.vue"
 import HaveConselho from "./ConselhoPage/HaveConselho.vue"
@@ -14,6 +14,8 @@ import resetComponent from "./auth/resetComponent.vue"
 import CardCurso from "./cards/CardCurso.vue"
 import FooterComponent from "./ComponentsPrincipais/FooterComponent.vue"
 import CardInformatica from "./cards/CardInformatica.vue"
+import CardModal from "./cards/CardModal.vue"
+
 
 export {
     loginComponent,
@@ -23,7 +25,7 @@ export {
     CardHeader,
     cardTurma,
     CardTurmaEsp,
-    OcorrenciaComponent,
+    ocorrenciaComponent,
     LoadingPage,
     NotConselho,
     HaveConselho,
@@ -33,5 +35,7 @@ export {
     FooterComponent,
     CardInformatica,
     
+    resetComponent, 
+    CardModal
 }
 
