@@ -6,6 +6,7 @@ import CardHistorico from "./ComponentsPrincipais/CardHistorico.vue"
 import CardHeader from "./ComponentsPrincipais/CardHeader.vue"
 import cardTurma from "./cards/cardTurma.vue"
 import CardTurmaEsp from "./cards/CardTurmaEsp.vue"
+import OcorrenciaComponente from "./aluno/OcorrenciaComponente.vue"
 
 export {
     loginComponent,
@@ -15,6 +16,6 @@ export {
     CardHeader,
     CardHistorico,
     cardTurma,
-    CardHeader,
     CardTurmaEsp,
+    OcorrenciaComponente
 }
