@@ -11,6 +11,9 @@ import NotConselho from "./ConselhoPage/NotConselho.vue"
 import HaveConselho from "./ConselhoPage/HaveConselho.vue"
 import forgotComponent from "./auth/forgotComponent.vue"
 import resetComponent from "./auth/resetComponent.vue"
+import CardCurso from "./cards/CardCurso.vue"
+import FooterComponent from "./ComponentsPrincipais/FooterComponent.vue"
+import CardInformatica from "./cards/CardInformatica.vue"
 
 export {
     loginComponent,
@@ -18,6 +21,7 @@ export {
     notasComponent,
     CardAluno,
     CardHeader,
+    CardHistorico,
     cardTurma,
     CardTurmaEsp,
     OcorrenciaComponent,
@@ -25,6 +29,10 @@ export {
     NotConselho,
     HaveConselho,
     forgotComponent,
-    resetComponent
+    resetComponent,
+    CardCurso,
+    FooterComponent,
+    CardInformatica,
+    
 }
 

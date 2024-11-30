@@ -10,6 +10,9 @@ import AlunosView from '@/views/AlunosView.vue';
 import { useAuthStore } from '@/stores/auth'; 
 import  ForgotPasswordView  from '@/views/auth/ForgotPasswordView.vue';
 import  ResetPasswordView  from '@/views/auth/ResetPasswordView.vue';
+import CursosView from '@/views/CursosView.vue';
+import TurmaInfoView from '@/views/turmas/TurmaInfoView.vue';
+import { components } from 'vuetify/dist/vuetify-labs.js';
 
 const routes = [
   {
@@ -52,12 +55,6 @@ const routes = [
     name: 'Turma',
     component: TurmasEspView, 
   },
-  
-  // {
-  //   path: '/a',
-  //   name: 'Test',
-  //   component: TurmaAluno,
-  // },
   {
     path: '/entrar-conselho',
     name: 'Entrar',
@@ -72,7 +69,17 @@ const routes = [
     path: '/reset-senha',
     name: 'ResetPassword',
     component: ResetPasswordView,
-  }
+  },
+  {
+    path: '/cursos',
+    name: 'Curso',
+    component: CursosView, 
+  },
+  {
+    path: '/informatica',
+    name: 'Informática',
+    component: TurmaInfoView, 
+  },
 ];
 
 const router = createRouter({
