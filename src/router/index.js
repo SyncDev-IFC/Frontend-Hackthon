@@ -4,8 +4,9 @@ import AlunoView from '@/views/AlunoView.vue';
 import HomeView from '../views/HomeView.vue';
 import TurmasView from '@/views/turmas/TurmasView.vue';
 import TurmasEspView from '@/views/turmas/TurmasEspView.vue';
-import TestComponent from '@/views/TestComponent.vue';
 import TesteInterligacao from '@/views/TesteInterligacao.vue';
+import AlunosView from '@/views/AlunosView.vue';
+
 import { useAuthStore } from '@/stores/auth'; 
 
 const routes = [
@@ -28,7 +29,13 @@ const routes = [
     }
   },
   {
-    path: '/aluno',
+    path: '/alunos/',
+    name: 'Alunos',
+    component: AlunosView,
+    props: true
+  },
+  {
+    path: '/aluno/:id',
     name: 'Aluno',
     component: AlunoView,
     props: true
@@ -43,11 +50,8 @@ const routes = [
     name: 'Turma',
     component: TurmasEspView, 
   },
-  {
-    path: '/test',
-    name: 'Test',
-    component: TestComponent,
-  }
+ 
+
 ];
 
 const router = createRouter({
