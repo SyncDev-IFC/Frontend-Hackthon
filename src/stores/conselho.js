@@ -5,7 +5,7 @@ import { useLoadingStore } from '@/stores/loading';
 
 export const useConselhoStore = defineStore('conselho', () => {
   const state = reactive({
-    conselho: null,  
+    conselho: [],  
   });
 
   const loadingStore = useLoadingStore();
