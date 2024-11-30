@@ -1,4 +1,7 @@
 <script setup>
+import ArrowLeft from 'vue-material-design-icons/ArrowLeft.vue';
+
+
 const props = defineProps({
     materia: {
         type: String,
@@ -9,25 +12,36 @@ const props = defineProps({
         required: true,
     },
     image: {
-        type: Image,
+        type: String, 
     },
     cor: {
-        type: String
+        type: String,
     }
 })
 </script>
+
 <template>
-<div class="card" :style="{ borderColor: props.cor }">
+<div class="card" :style="{ backgroundColor: props.cor }">
     <div class="informacoes">
-    <p>{{ props.materia }}</p>
-    <h1>{{ props.turma }}</h1>
-    </div>
+        <div class="rightTopCorner">  <router-link to ="/" class="router"> <ArrowLeft size="30"></ArrowLeft></router-link>
+        <p class="materia">{{ props.materia }}</p></div>
+     
+        <h1>{{ props.turma }}</h1>    </div>
     <div class="img">
-    <img :src="props.image" alt="">
-</div>
+        <img :src="props.image" alt="">
+    </div>
 </div>
 </template>
+
 <style scoped>
+.rightTopCorner{
+    display: flex;
+    cursor: pointer;
+}
+
+.router{
+    color: black;
+}
 .card{
     display: flex;
     width: 50vw;
@@ -36,9 +50,15 @@ const props = defineProps({
     border-radius: 27px; 
     margin: auto;
     margin-top: 30px;
+    border-color: #00E88F;
 }
 h1{
     font-size: 60px;
+}
+
+
+.materia{
+    font-size: 20px;
 }
 .informacoes{
     width: 50%;
