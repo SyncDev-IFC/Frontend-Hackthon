@@ -36,11 +36,11 @@ const turmas = [
     :materia="turma.curso?.nome || 'Curso Desconhecido'"
     :turma="turma.nome"
     :cor="turma.curso?.cor || '#00000'"
-    :image="turma?.image || 'src/assets/chapeu.png'"
+    :image="'https://i.ibb.co/7vdS8dQ/chapeu.png'"
     :id="turma.id"
   />
-  <cardTurma v-for="turma in turmas" :key="turma.id" :materia="turma.materia" :turma="turma.turma" :cor="turma.cor" :image="turma.image"
-  ></cardTurma>
+  <!-- <cardTurma v-for="turma in turmas" :key="turma.id" :materia="turma.materia" :turma="turma.turma" :cor="turma.cor" :image="turma.image"
+  ></cardTurma> -->
   
   <FooterComponent/>
 </template>
