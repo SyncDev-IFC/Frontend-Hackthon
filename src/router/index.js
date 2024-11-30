@@ -5,11 +5,6 @@ import HomeView from '@/views/HomeView.vue';
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: HomeView,
-  },
-  {
     path: '/login',
     name: 'Login',
     component: LoginView,

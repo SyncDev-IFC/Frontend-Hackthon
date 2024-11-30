@@ -57,7 +57,6 @@ const textoFormatado = computed(() =>
       <p>{{ props.tipo }}</p>
       {{ props.data }}
     </div>
-
     <div class="VerMais" @click="alternarTexto">
       {{ mostrarTextoCompleto ? "Ver Menos" : "Ver Mais" }}
     </div>
