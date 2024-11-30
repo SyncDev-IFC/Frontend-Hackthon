@@ -9,6 +9,8 @@ import OcorrenciaComponent from "../components/aluno/ocorrenciaComponent.vue"
 import LoadingPage from "./LoadingPage/LoadingPage.vue"
 import NotConselho from "./ConselhoPage/NotConselho.vue"
 import HaveConselho from "./ConselhoPage/HaveConselho.vue"
+import forgotComponent from "./auth/forgotComponent.vue"
+import resetComponent from "./auth/resetComponent.vue"
 
 export {
     loginComponent,
@@ -21,7 +23,8 @@ export {
     OcorrenciaComponent,
     LoadingPage,
     NotConselho,
-    HaveConselho
-  
+    HaveConselho,
+    forgotComponent,
+    resetComponent
 }
 
