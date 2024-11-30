@@ -4,6 +4,9 @@ import notasComponent from "./aluno/notasComponent.vue"
 import CardAluno from "./ComponentsPrincipais/CardAluno.vue"
 import CardHistorico from "./ComponentsPrincipais/CardHistorico.vue"
 import CardHeader from "./ComponentsPrincipais/CardHeader.vue"
+import cardTurma from "./cards/cardTurma.vue"
+import CardTurmaEsp from "./cards/CardTurmaEsp.vue"
+
 export {
     loginComponent,
     alunoComponent,
@@ -11,4 +14,7 @@ export {
     CardAluno,
     CardHeader,
     CardHistorico,
+    cardTurma,
+    CardHeader,
+    CardTurmaEsp,
 }
