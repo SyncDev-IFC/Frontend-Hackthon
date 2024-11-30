@@ -45,7 +45,7 @@ const props = defineProps({
 }
 .card{
     display: flex;
-    width: 80vw;
+    width: 90vw;
     border: 6px solid;
     height: 25vh;
     border-radius: 27px; 

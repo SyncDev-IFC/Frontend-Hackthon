@@ -1,11 +1,5 @@
 <script setup>
-import { ref } from 'vue'
 
-const mostrar = ref(false)
-
-const toggleMenu = () => {
-  mostrar.value = !mostrar.value;
-}
 </script>
 
 <template>
@@ -22,7 +16,7 @@ const toggleMenu = () => {
   display: flex;
   flex-direction: row;
   padding: 5px;
-  padding-right: 12%;
+  padding-right: 4%;
   width: 100%;
   justify-content: flex-end;
   font-size: 13px;

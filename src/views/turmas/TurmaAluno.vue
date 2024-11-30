@@ -80,7 +80,7 @@ v-for="aluno in alunos" :key="aluno"
   display: flex;
   flex-direction: row;
   padding:10px;
-
+    top: 40%;
   width: 100%;
   font-size: 13px;
   align-items: center;
@@ -98,7 +98,7 @@ v-for="aluno in alunos" :key="aluno"
 
 .menu {
   position: absolute;
-  top: 12%;
+  top: 58%;
   text-align: left;
   width: 200px;
   padding: 10px;
@@ -109,6 +109,8 @@ v-for="aluno in alunos" :key="aluno"
   border-bottom-right-radius: 10px;
   box-shadow: 0px 0px 45px -10px rgba(148,148,148,1);
   transition: opacity 0.3s ease, transform 0.3s ease; 
+  background-color: white;
+  z-index: 4;
 }
 
 .menu.show {

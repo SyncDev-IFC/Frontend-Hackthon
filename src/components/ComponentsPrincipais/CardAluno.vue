@@ -43,6 +43,7 @@ const props = defineProps({
   flex-direction: row;
   justify-content: space-between;
   border: 2px #a4a4a4 solid;
+  z-index: 1;
 }
 img {
   height: 100%;
@@ -76,6 +77,7 @@ h5 {
 .info {
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 .direito{
     display: flex;
