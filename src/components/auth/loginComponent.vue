@@ -1,23 +1,51 @@
-<script>
-import { reactive } from 'vue'
+<script setup>
+import { ref } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+import { useRouter } from 'vue-router';
 
-export default {
-  setup() {
-    const state = reactive({
-      codigo: '',
-      novaSenha: '',
-      showPassword: false,
-      showConfirmPassword: false,
-    })
+const authStore = useAuthStore();
+const router = useRouter();
 
-    function senhaVisibilidade() {
-      state.showPassword = !state.showPassword
+const email = ref('');
+const password = ref('');
+const showPassword = ref(false);
+const emailError = ref(false);
+const errorMessage = ref('');
+
+function togglePasswordVisibility() {
+  showPassword.value = !showPassword.value;
+}
+
+function validateEmail() {
+  if (!email.value.includes('@ifc.edu.br')) {
+    emailError.value = true;
+    errorMessage.value = 'O email deve ser com o domínio @ifc.edu.br';
+    return false;
+  } else {
+    emailError.value = false;
+    errorMessage.value = '';
+    return true;
+  }
+}
+
+async function handleLogin() {
+  console.log("Função handleLogin foi chamada");
+
+  // Validar email antes de enviar a solicitação de login
+  if (!validateEmail()) {
+    return;
+  }
+
+  try {
+    const credentials = { email: email.value, password: password.value };
+    const response = await authStore.LoginUser(credentials);
+
+    if (response) {
+      router.push('/');
     }
-
-    return {
-      state,
-      senhaVisibilidade
-    }
+  } catch (error) {
+    console.error('Erro no login:', error);
+    alert('Erro no login. Verifique suas credenciais.');
   }
 }
 </script>
@@ -25,39 +53,49 @@ export default {
 <template>
   <div class="wrapContainer">
     <div class="FormBot">
-      <form class="wrapForm">
+
+          <v-alert v-if="emailError" type="error" dismissible>
+            {{ errorMessage }}
+          </v-alert>
+      <form class="wrapForm" @submit.prevent="handleLogin">
         <div class="input-container">
           <p class="Ptext">E-mail</p>
           <input
             type="text"
             id="username"
             class="inputForm"
+            v-model="email"
             required
           />
           <label for="username" class="labelForm">
             Digite aqui o seu e-mail
           </label>
         </div>
+
         <div class="input-container">
           <p class="Ptext">Senha</p>
           <input
-            :type="state.showPassword ? 'text' : 'password'"
+            :type="showPassword ? 'text' : 'password'"
             id="password"
             class="inputForm"
+            v-model="password"
             required
           />
           <label for="password" class="labelForm">
             Digite aqui a sua senha
           </label>
-          <div class="iconMostrar bi" :class="state.showPassword ? 'mdi mdi-eye' : 'mdi mdi-eye-off'"
-            @click="senhaVisibilidade">
-          </div>
+          <div
+            class="iconMostrar bi"
+            :class="showPassword ? 'mdi mdi-eye' : 'mdi mdi-eye-off'"
+            @click="togglePasswordVisibility"
+          ></div>
         </div>
 
         <button type="button" style="margin-top: 10px" class="btnSenha">
           <router-link to="/" class="btnSenha">Esqueceu sua senha?</router-link>
         </button>
         <button type="submit" class="btnLogin mt-3">Entrar</button>
+
         <p class="mt-4 Pf">
           Este site é protegido por reCAPTCHA e a Política de privacidade e os Termos de Serviço do Google são aplicáveis
         </p>
