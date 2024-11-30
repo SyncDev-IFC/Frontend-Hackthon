@@ -2,16 +2,16 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LoginView from '../views/auth/LoginView.vue'
 import AlunoView from '@/views/AlunoView.vue';
 import HomeView from '../views/HomeView.vue';
-import LoginView from '../views/auth/LoginView.vue';
 import TurmasView from '@/views/turmas/TurmasView.vue';
 import TurmasEspView from '@/views/turmas/TurmasEspView.vue';
+import TestComponent from '@/views/TestComponent.vue';
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView,
-  }
+  },
   {
     path: '/login',
     name: 'Login',
@@ -32,6 +32,11 @@ const routes = [
     path: '/turma',
     name: 'Turma',
     component: TurmasEspView, 
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: TestComponent,
   }
 ];
 
