@@ -12,7 +12,7 @@ const toggleMenu = () => {
   <header>
     <div class="nav-links">
       <h1>Ordenar por</h1>
-      <img src="/home/joao/Frontend-Hackthon/src/assets/Vector 13.png" alt="Menu" @click="toggleMenu" class="menu-button">
+      <img src="../../assets/Vector 13.png" alt="Menu" @click="toggleMenu" class="menu-button">
       <div v-show="mostrar" class="menu">
         <a href="#">Alunos</a>
         <a href="#">Alunos</a>
@@ -20,7 +20,7 @@ const toggleMenu = () => {
         <a href="#">Alunos</a>
         <a href="#">Alunos</a>
       </div>
-      <img class="foto" src="/home/joao/Frontend-Hackthon/src/assets/Captura de tela 2024-11-29 083946.png" alt="">
+      <img class="foto" src="../../assets/Captura de tela 2024-11-29 083946.png" alt="">
     </div>
   </header>
 </template>

@@ -1,6 +1,7 @@
 <script setup>
 import {CardAluno} from '@/components';
 import { CardHeader } from '@/components';
+import { OcorrenciaComponente } from '@/components';
 
 import { ref } from 'vue'
 
@@ -16,14 +17,15 @@ const alunos = ref([
 
 
 <template>
-  <CardHeader/>
+  <!-- <CardHeader/>
 <CardAluno 
 v-for="aluno in alunos" :key="aluno"
 :nome="aluno.nome"
 :email="aluno.email"
 :foto="aluno.foto"
-/>
+/> -->
 
+<OcorrenciaComponente/>
 </template>
 <style scoped>
 
