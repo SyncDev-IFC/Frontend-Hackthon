@@ -5,6 +5,7 @@ import HomeView from '../views/HomeView.vue';
 import TurmasView from '@/views/turmas/TurmasView.vue';
 import TurmasEspView from '@/views/turmas/TurmasEspView.vue';
 import TestComponent from '@/views/TestComponent.vue';
+import TesteInterligacao from '@/views/TesteInterligacao.vue';
 
 const routes = [
   {
