@@ -12,7 +12,6 @@ const turmas = [
 <template>
     <h2>Bem Vindo, Professor</h2>
     <h3>É um prazer!</h3>
-  <router-view />
   <cardTurma
     v-for="turma in turmas"
     :key="turma.id"

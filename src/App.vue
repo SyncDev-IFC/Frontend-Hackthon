@@ -1,5 +1,4 @@
 <template>
-  <router-view/>
     <LoadingPage v-if="loadingStore.isLoading" />
     <router-view/>
 </template>

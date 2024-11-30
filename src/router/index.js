@@ -5,7 +5,7 @@ import HomeView from '../views/HomeView.vue';
 import TurmasView from '@/views/turmas/TurmasView.vue';
 import TurmasEspView from '@/views/turmas/TurmasEspView.vue';
 import TestComponent from '@/views/TestComponent.vue';
-import TesteInterligacao from '@/views/TesteInterligacao.vue';
+import ConselhoEntrarView from '@/views/ConselhoEntrar/ConselhoEntrarView.vue';
 import { useAuthStore } from '@/stores/auth'; 
 
 const routes = [
@@ -47,6 +47,11 @@ const routes = [
     path: '/test',
     name: 'Test',
     component: TestComponent,
+  },
+  {
+    path: '/entrar-conselho',
+    name: 'Entrar',
+    component: ConselhoEntrarView,
   }
 ];
 

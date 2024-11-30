@@ -8,6 +8,8 @@ import cardTurma from "./cards/cardTurma.vue"
 import CardTurmaEsp from "./cards/CardTurmaEsp.vue"
 import OcorrenciaComponente from "./aluno/OcorrenciaComponente.vue"
 import LoadingPage from "./LoadingPage/LoadingPage.vue"
+import NotConselho from "./ConselhoPage/NotConselho.vue"
+import HaveConselho from "./ConselhoPage/HaveConselho.vue"
 
 export {
     loginComponent,
@@ -19,6 +21,8 @@ export {
     cardTurma,
     CardTurmaEsp,
     OcorrenciaComponente,
-    LoadingPage
+    LoadingPage,
+    NotConselho,
+    HaveConselho
 }
 
