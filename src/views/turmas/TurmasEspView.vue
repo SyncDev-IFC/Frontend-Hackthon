@@ -1,5 +1,5 @@
 <script setup>
-import { CardTurmaEsp } from '@/components'
+import { CardTurmaEsp, CardAluno } from '@/components'
 
 
 const turma = { 
@@ -12,14 +12,13 @@ const turma = {
 </script>
 
 <template>
-  <router-view />
   <CardTurmaEsp
     :materia="turma.materia"
     :turma="turma.turma"
     :cor="turma.cor"
     :image="turma.image"
     />
-  
+    <card-aluno :nome="Kelr" :email="email"/>
 </template>
 
 <style scoped>
