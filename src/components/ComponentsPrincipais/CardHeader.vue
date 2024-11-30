@@ -1,25 +1,10 @@
 <script setup>
-import { ref } from 'vue'
 
-const mostrar = ref(false)
-
-const toggleMenu = () => {
-  mostrar.value = !mostrar.value;
-}
 </script>
 
 <template>
   <header>
     <div class="nav-links">
-      <h1>Ordenar por</h1>
-      <img src="./../../assets/seta.png" alt="Menu" @click="toggleMenu" class="menu-button">
-      <div v-show="mostrar" class="menu">
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-        <a href="#">Alunos</a>
-      </div>
       <img class="foto" src="./../../assets/user.png" alt="">
     </div>
   </header>
@@ -31,7 +16,7 @@ const toggleMenu = () => {
   display: flex;
   flex-direction: row;
   padding: 5px;
-  padding-right: 12%;
+  padding-right: 4%;
   width: 100%;
   justify-content: flex-end;
   font-size: 13px;

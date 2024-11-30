@@ -12,7 +12,7 @@ const props = defineProps({
         required: true,
     },
     image: {
-        type: String, 
+        type: Image, 
     },
     cor: {
         type: String,
@@ -26,7 +26,8 @@ const props = defineProps({
         <div class="rightTopCorner">  <router-link to ="/" class="router"> <ArrowLeft size="30"></ArrowLeft></router-link>
         <p class="materia">{{ props.materia }}</p></div>
      
-        <h1>{{ props.turma }}</h1>    </div>
+        <h1>{{ props.turma }}</h1>    
+        </div>
     <div class="img">
         <img :src="props.image" alt="">
     </div>
@@ -44,13 +45,14 @@ const props = defineProps({
 }
 .card{
     display: flex;
-    width: 50vw;
+    width: 90vw;
     border: 6px solid;
-    height: 20vh;
+    height: 25vh;
     border-radius: 27px; 
     margin: auto;
     margin-top: 30px;
     border-color: #00E88F;
+    
 }
 h1{
     font-size: 60px;
@@ -64,6 +66,9 @@ h1{
     width: 50%;
     padding: 10px;
     padding-left: 25px;
+    display: flex;
+    align-self: flex-end;
+    flex-direction: column;
 }
 .img{
     width: 50%;
