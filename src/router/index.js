@@ -6,17 +6,26 @@ import TurmasView from '@/views/turmas/TurmasView.vue';
 import TurmasEspView from '@/views/turmas/TurmasEspView.vue';
 import TestComponent from '@/views/TestComponent.vue';
 import TesteInterligacao from '@/views/TesteInterligacao.vue';
+import { useAuthStore } from '@/stores/auth'; 
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView,
+    name: 'Login', 
+    component: LoginView,
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: LoginView,
+    path: '/home',
+    name: 'Home',
+    component: HomeView,
+    beforeEnter: (to, from, next) => {
+      const authStore = useAuthStore();
+      if (authStore.isLogged) {
+        next();
+      } else {
+        next('/'); 
+      }
+    }
   },
   {
     path: '/aluno',
