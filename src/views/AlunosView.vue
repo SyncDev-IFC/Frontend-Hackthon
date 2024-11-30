@@ -1,51 +1,49 @@
 <script setup>
 import { alunoComponent, notasComponent } from "@/components";
-import { useAlunoStore } from '@/stores'  
-import { ref, onMounted, defineProps } from 'vue'
+import { useAlunoStore } from '@/stores'  // Ajuste o import se necessário
 
-const props = defineProps(['id'])
-const alunoStore = useAlunoStore()
+import { ref, onMounted } from 'vue'
 
+const alunoStore = useAlunoStore();
 
-onMounted(async () => {
-  await alunoStore.getAluno(props.id)
+onMounted(async () =>{
+  await alunoStore.getAlunos();
 })
 
+const mostrar = ref(false)
 
+const toggleMenu = () => {
+  mostrar.value = !mostrar.value;
+}
 </script>
 
 <template>
-
-  <div>
-    <h1>{{ alunoStore.state.aluno.nome }}</h1>
-    <p>{{ alunoStore.state }}</p>
-
-    <alunoComponent 
-      :email="alunoStore.state.aluno.email" 
-      :nome="alunoStore.state.aluno.nome"
-      :image="alunoStore.state.aluno.foto ? alunoStore.state.aluno.foto : 'https://www.lance.com.br/galerias/wp-content/uploads/2020/08/SantaCruz.jpg'" 
-    />
-    <notasComponent :notas="alunoStore.state.aluno.notas" />
-
-    <div class="ordem">
-      <h1>Histórico</h1>
-      <div class="ordenar">
-        <h4>Ordenar por</h4>
-        <img src="./../assets/seta.png" alt="Menu" @click="toggleMenu" class="menu-button">
-        <div v-if="mostrar" class="menu">
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
-        </div>
-      </div>
+    <div v-for="aluno in alunoStore.state.alunos" :key="aluno.id">
+        <alunoComponent :email="aluno.email" :nome="aluno.nome"
+            :image="aluno.image" />
+        <notasComponent />
     </div>
 
-
-  </div>
+    <alunoComponent :email="'teste@gmail.com'" :nome="'fulano de tal'"
+        :image="'https://www.lance.com.br/galerias/wp-content/uploads/2020/08/SantaCruz.jpg'" />
+    <notasComponent />
+    <div class="ordem">
+    <h1>Histórico</h1>
+    <div class="ordenar">
+    <h4>Ordenar por</h4>
+    
+      <img src="./../assets/seta.png" alt="Menu" @click="toggleMenu" class="menu-button">
+      <div v-if="mostrar" class="menu">
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+        <a href="#">Alunos</a>
+      </div>
+    </div>
+</div>
+   
 </template>
-
 
 <style scoped>
 img{

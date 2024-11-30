@@ -1,29 +1,15 @@
 import axios from "axios";
 
 class AlunoService {
-    async getAllAlunos() {
-        const response = await axios.get('alunos/');
-        return response.data;
+    async getAlunos() {
+        const {data} = await axios.get('alunos/');
+        console.log(data)
+        return data.results;
     }
 
-    async getAlunoById(id) {
-        const response = await axios.get(`alunos/${id}`);
-        return response.data;
-    }
-
-    async createAluno(alunoData) {
-        const response = await axios.post('alunos/', alunoData);
-        return response.data;
-    }
-
-    async updateAluno(id, alunoData) {
-        const response = await axios.put(`alunos/${id}`, alunoData);
-        return response.data;
-    }
-
-    async deleteAluno(id) {
-        const response = await axios.delete(`alunos/${id}`);
-        return response.data;
+    async getAluno(id) {
+        const { data } = await axios.get(`alunos/${id}`);
+        return data;
     }
 
     async getAlunosComNotaBaixa() {
