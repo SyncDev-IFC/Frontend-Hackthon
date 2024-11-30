@@ -7,14 +7,8 @@ const authStore = useAuthStore();
 const router = useRouter();
 
 const email = ref('');
-const password = ref('');
-const showPassword = ref(false);
 const emailError = ref(false);
 const errorMessage = ref('');
-
-function togglePasswordVisibility() {
-  showPassword.value = !showPassword.value;
-}
 
 function validateEmail() {
   if (!email.value.includes('@ifc.edu.br')) {
@@ -25,79 +19,58 @@ function validateEmail() {
     emailError.value = false;
     errorMessage.value = '';
     return true;
-  }
 }
 
-async function handleLogin() {
-  console.log("Função handleLogin foi chamada");
+async function handleForgotPassword() {
+  console.log("Função handleForgotPassword foi chamada");
 
-  // Validar email antes de enviar a solicitação de login
   if (!validateEmail()) {
     return;
   }
 
   try {
-    const credentials = { email: email.value, password: password.value };
-    const response = await authStore.LoginUser(credentials);
+    const response = await authStore.ForgotPasswordUser(email.value);
 
     if (response) {
-      router.push('/');
+      router.push('/reset-password');
     }
   } catch (error) {
-    console.error('Erro no login:', error);
-    alert('Erro no login. Verifique suas credenciais.');
+    console.error('Erro ao enviar solicitação de recuperação de senha:', error);
+    alert('Erro ao enviar solicitação de recuperação de senha. Tente novamente.');
   }
+}
 }
 </script>
 
 <template>
   <div class="wrapContainer">
     <div class="FormBot">
+      <v-alert v-if="emailError" type="error" dismissible>
+        {{ errorMessage }}
+      </v-alert>
 
-          <v-alert v-if="emailError" type="error" dismissible>
-            {{ errorMessage }}
-          </v-alert>
-      <form class="wrapForm" @submit.prevent="handleLogin">
+      <form class="wrapForm" @submit.prevent="handleForgotPassword">
         <div class="input-container">
           <p class="Ptext">E-mail</p>
           <input
             type="text"
-            id="username"
+            id="email"
             class="inputForm"
             v-model="email"
             required
           />
-          <label for="username" class="labelForm">
+          <label for="email" class="labelForm">
             Digite aqui o seu e-mail
           </label>
         </div>
 
-        <div class="input-container">
-          <p class="Ptext">Senha</p>
-          <input
-            :type="showPassword ? 'text' : 'password'"
-            id="password"
-            class="inputForm"
-            v-model="password"
-            required
-          />
-          <label for="password" class="labelForm">
-            Digite aqui a sua senha
-          </label>
-          <div
-            class="iconMostrar bi"
-            :class="showPassword ? 'mdi mdi-eye' : 'mdi mdi-eye-off'"
-            @click="togglePasswordVisibility"
-          ></div>
-        </div>
-
-        <button type="button" style="margin-top: 10px" class="btnSenha">
-          <router-link to="/recuperar-senha" class="btnSenha">Esqueceu sua senha?</router-link>
+        <button type="submit" class="btnLogin mt-3">
+          Enviar e-mail de recuperação
         </button>
-        <button type="submit" class="btnLogin mt-3">Entrar</button>
 
         <p class="mt-4 Pf">
-          Este site é protegido por reCAPTCHA e a Política de privacidade e os Termos de Serviço do Google são aplicáveis
+          Este site é protegido por reCAPTCHA e a Política de privacidade e os
+          Termos de Serviço do Google são aplicáveis.
         </p>
       </form>
     </div>
@@ -163,25 +136,6 @@ async function handleLogin() {
 .btnLogin:hover {
   background-color: #000000;
   transition: all 0.5s ease;
-}
-
-.btnSenha {
-  margin-top: 20px;
-  border: none;
-  text-decoration: underline;
-  background-color: white;
-  color: rgb(0, 0, 0);
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.iconMostrar {
-  font-size: 25px;
-  cursor: pointer;
-  position: absolute;
-  right: 0px;
-  margin-top: -44px;
-  margin-right: 12px;
 }
 
 .Pf {

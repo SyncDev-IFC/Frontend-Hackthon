@@ -6,46 +6,35 @@ import { useRouter } from 'vue-router';
 const authStore = useAuthStore();
 const router = useRouter();
 
-const email = ref('');
 const password = ref('');
+const code = ref('');  // Campo para o código de recuperação
 const showPassword = ref(false);
-const emailError = ref(false);
+const codeError = ref(false);
 const errorMessage = ref('');
 
 function togglePasswordVisibility() {
   showPassword.value = !showPassword.value;
 }
 
-function validateEmail() {
-  if (!email.value.includes('@ifc.edu.br')) {
-    emailError.value = true;
-    errorMessage.value = 'O email deve ser com o domínio @ifc.edu.br';
-    return false;
-  } else {
-    emailError.value = false;
-    errorMessage.value = '';
-    return true;
-  }
-}
-
-async function handleLogin() {
-  console.log("Função handleLogin foi chamada");
-
-  // Validar email antes de enviar a solicitação de login
-  if (!validateEmail()) {
+async function handleResetPassword() {
+  // Verificar se o código de recuperação foi fornecido
+  if (!code.value) {
+    codeError.value = true;
+    errorMessage.value = 'O código de recuperação é obrigatório';
     return;
   }
 
   try {
-    const credentials = { email: email.value, password: password.value };
-    const response = await authStore.LoginUser(credentials);
+    const resetData = { new_password: password.value, reset_code: code.value };
+    const response = await authStore.ResetPasswordUser(resetData); 
 
     if (response) {
-      router.push('/');
+      alert('Senha redefinida com sucesso!');
+      router.push('/login'); 
     }
   } catch (error) {
-    console.error('Erro no login:', error);
-    alert('Erro no login. Verifique suas credenciais.');
+    console.error('Erro ao redefinir a senha:', error);
+    alert('Erro ao redefinir a senha. Verifique o código ou tente novamente.');
   }
 }
 </script>
@@ -53,27 +42,26 @@ async function handleLogin() {
 <template>
   <div class="wrapContainer">
     <div class="FormBot">
-
-          <v-alert v-if="emailError" type="error" dismissible>
-            {{ errorMessage }}
-          </v-alert>
-      <form class="wrapForm" @submit.prevent="handleLogin">
+      <v-alert v-if="codeError" type="error" dismissible>
+        {{ errorMessage }}
+      </v-alert>
+      <form class="wrapForm" @submit.prevent="handleResetPassword">
         <div class="input-container">
-          <p class="Ptext">E-mail</p>
+          <p class="Ptext">Código de recuperação</p>
           <input
             type="text"
-            id="username"
+            id="code"
             class="inputForm"
-            v-model="email"
+            v-model="code"
             required
           />
-          <label for="username" class="labelForm">
-            Digite aqui o seu e-mail
+          <label for="code" class="labelForm">
+            Digite o código enviado para o seu e-mail
           </label>
         </div>
 
         <div class="input-container">
-          <p class="Ptext">Senha</p>
+          <p class="Ptext">Nova senha</p>
           <input
             :type="showPassword ? 'text' : 'password'"
             id="password"
@@ -82,7 +70,7 @@ async function handleLogin() {
             required
           />
           <label for="password" class="labelForm">
-            Digite aqui a sua senha
+            Digite a nova senha
           </label>
           <div
             class="iconMostrar bi"
@@ -91,10 +79,7 @@ async function handleLogin() {
           ></div>
         </div>
 
-        <button type="button" style="margin-top: 10px" class="btnSenha">
-          <router-link to="/recuperar-senha" class="btnSenha">Esqueceu sua senha?</router-link>
-        </button>
-        <button type="submit" class="btnLogin mt-3">Entrar</button>
+        <button type="submit" class="btnLogin mt-3">Redefinir Senha</button>
 
         <p class="mt-4 Pf">
           Este site é protegido por reCAPTCHA e a Política de privacidade e os Termos de Serviço do Google são aplicáveis
@@ -163,16 +148,6 @@ async function handleLogin() {
 .btnLogin:hover {
   background-color: #000000;
   transition: all 0.5s ease;
-}
-
-.btnSenha {
-  margin-top: 20px;
-  border: none;
-  text-decoration: underline;
-  background-color: white;
-  color: rgb(0, 0, 0);
-  font-size: 15px;
-  cursor: pointer;
 }
 
 .iconMostrar {

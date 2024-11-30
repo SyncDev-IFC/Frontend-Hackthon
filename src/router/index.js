@@ -8,6 +8,9 @@ import ConselhoEntrarView from '@/views/ConselhoEntrar/ConselhoEntrarView.vue';
 import AlunosView from '@/views/AlunosView.vue';
 
 import { useAuthStore } from '@/stores/auth'; 
+import  ForgotPasswordView  from '@/views/auth/ForgotPasswordView.vue';
+import  ResetPasswordView  from '@/views/auth/ResetPasswordView.vue';
+
 const routes = [
   {
     path: '/',
@@ -59,9 +62,17 @@ const routes = [
     path: '/entrar-conselho',
     name: 'Entrar',
     component: ConselhoEntrarView,
+  },
+  {
+    path: '/recuperar-senha',
+    name: 'ForgotPassword',
+    component: ForgotPasswordView,
+  },
+  {
+    path: '/reset-senha',
+    name: 'ResetPassword',
+    component: ResetPasswordView,
   }
- 
-
 ];
 
 const router = createRouter({
