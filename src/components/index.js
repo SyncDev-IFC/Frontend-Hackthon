@@ -7,6 +7,7 @@ import CardHeader from "./ComponentsPrincipais/CardHeader.vue"
 import cardTurma from "./cards/cardTurma.vue"
 import CardTurmaEsp from "./cards/CardTurmaEsp.vue"
 import OcorrenciaComponente from "./aluno/OcorrenciaComponente.vue"
+import LoadingPage from "./LoadingPage/LoadingPage.vue"
 
 export {
     loginComponent,
@@ -17,5 +18,7 @@ export {
     CardHistorico,
     cardTurma,
     CardTurmaEsp,
-    OcorrenciaComponente
+    OcorrenciaComponente,
+    LoadingPage
 }
+
