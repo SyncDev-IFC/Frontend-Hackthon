@@ -1,23 +1,22 @@
 <script setup>
+import { defineProps } from 'vue'
+const props = defineProps({
+   notas : {
+       type: Array,
+       required: true
+   }
+})
+
+
 </script>
 
 <template>
     <div class="container">
 <h4>Notas</h4>
-<div class="cardNotas">
+<div class="cardNotas" v-for="nota in props.notas">
     <div class="bolinha"><p>1</p></div>
-    <p class="trimestre">Trimestre</p>
-    <div class="nota"> <P>9</P></div>
-</div>
-<div class="cardNotas">
-    <div class="bolinha">2</div>
-    <p class="trimestre">Trimestre</p>
-    <div class="nota"> <P>9</P></div>
-</div>
-<div class="cardNotas">
-    <div class="bolinha">3</div>
-    <p class="trimestre">Trimestre</p>
-    <div class="nota"> <P>9</P></div>
+    <p class="trimestre">Trimestre - {{ nota.disciplina_name }}</p>
+    <div class="nota"> <P>{{nota.nota}}</P></div>
 </div>
 </div>
 </template>
