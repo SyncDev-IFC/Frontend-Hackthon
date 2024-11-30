@@ -32,9 +32,9 @@ async function handleLogin() {
   console.log("Função handleLogin foi chamada");
 
   // Validar email antes de enviar a solicitação de login
-  if (!validateEmail()) {
-    return;
-  }
+  // if (!validateEmail()) {
+  //   return;
+  // }
 
   try {
     const credentials = { email: email.value, password: password.value };

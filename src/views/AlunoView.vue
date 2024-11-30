@@ -1,31 +1,46 @@
 <script setup>
-import { alunoComponent, notasComponent } from "@/components";
+import { alunoComponent, notasComponent, ocorrenciaComponent, CardModal } from "@/components";
 import { useAlunoStore } from '@/stores'  
 import { ref, onMounted, defineProps } from 'vue'
 
 const props = defineProps(['id'])
 const alunoStore = useAlunoStore()
-
+const mostrar = ref(false)
+const ocorrencias = ref([]) 
 
 onMounted(async () => {
-  await alunoStore.getAluno(props.id)
+  await alunoStore.getAluno(props.id);
+  ocorrencias.value = alunoStore.state.aluno.historico.ocorrencias;  
 })
 
-
+const toggleMenu = () => {
+  mostrar.value = !mostrar.value;
+}
 </script>
 
 <template>
-
   <div>
-    <h1>{{ alunoStore.state.aluno.nome }}</h1>
-    <p>{{ alunoStore.state }}</p>
-
     <alunoComponent 
       :email="alunoStore.state.aluno.email" 
       :nome="alunoStore.state.aluno.nome"
-      :image="alunoStore.state.aluno.foto ? alunoStore.state.aluno.foto : 'https://www.lance.com.br/galerias/wp-content/uploads/2020/08/SantaCruz.jpg'" 
+      :image="'https://via.placeholder.com/150'" 
     />
     <notasComponent :notas="alunoStore.state.aluno.notas" />
+    <CardModal class="wrap"/>
+    <v-table height="300px" fixed-header>
+<thead>
+<tr>
+<th class="text-center">Matéria</th>
+<th class="text-center">Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="nota in alunoStore.state.aluno.notas" :key="nota.id">
+<td class="text-center">{{ nota.disciplina.nome }}</td>
+<td class="text-center">{{ nota.nota   }}</td>
+</tr>
+</tbody>
+</v-table>
 
     <div class="ordem">
       <h1>Histórico</h1>
@@ -33,19 +48,15 @@ onMounted(async () => {
         <h4>Ordenar por</h4>
         <img src="./../assets/seta.png" alt="Menu" @click="toggleMenu" class="menu-button">
         <div v-if="mostrar" class="menu">
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
-          <a href="#">Alunos</a>
+          <a href="#">Ocorrencias</a>
+          <a href="#">Observações</a>
+          <a href="#">Antigos</a>
         </div>
       </div>
     </div>
-
-
+    <ocorrenciaComponent :ocorrencias="ocorrencias" />  <!-- Passando as ocorrências para o componente -->
   </div>
 </template>
-
 
 <style scoped>
 img{
@@ -102,7 +113,13 @@ img{
   padding: 10px 0;
   border-bottom: 1px solid #ccc; 
 }
-
+.wrap{
+  display: flex;
+  justify-content: end;
+  margin-right: 6em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 .menu a:last-child {
   border-bottom: none; 
 }

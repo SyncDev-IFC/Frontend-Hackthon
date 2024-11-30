@@ -21,24 +21,24 @@ function validateEmail() {
     return true;
 }
 
+}
 async function handleForgotPassword() {
   console.log("Função handleForgotPassword foi chamada");
 
-  if (!validateEmail()) {
-    return;
-  }
+  // if (!validateEmail()) {
+  //   return;
+  // }
 
   try {
     const response = await authStore.ForgotPasswordUser(email.value);
 
     if (response) {
-      router.push('/reset-password');
+      router.push('/reset-senha');
     }
   } catch (error) {
     console.error('Erro ao enviar solicitação de recuperação de senha:', error);
     alert('Erro ao enviar solicitação de recuperação de senha. Tente novamente.');
   }
-}
 }
 </script>
 

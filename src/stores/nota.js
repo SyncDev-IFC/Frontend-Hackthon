@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { computed, reactive } from 'vue';
-import NotaService from '@/services/NotaService';
+import NotaService from '@/services/nota';
 import { useLoadingStore } from '@/stores/loading';
 
 export const useNotaStore = defineStore('nota', () => {
@@ -23,8 +23,19 @@ export const useNotaStore = defineStore('nota', () => {
     }
   };
 
+  const createNota = async (novaNota) => {
+    try {
+      const response = await NotaService.createNota(novaNota);
+      state.notas.push(response);
+    } catch (error) {
+      console.error('Erro ao criar nota:', error);
+      throw error;
+    }
+  };
+
   return {
     notas,
     getAllNotas,
+    createNota
   };
 });

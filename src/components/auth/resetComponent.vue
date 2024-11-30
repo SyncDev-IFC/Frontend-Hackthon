@@ -30,7 +30,7 @@ async function handleResetPassword() {
 
     if (response) {
       alert('Senha redefinida com sucesso!');
-      router.push('/login'); 
+      router.push('/'); 
     }
   } catch (error) {
     console.error('Erro ao redefinir a senha:', error);
