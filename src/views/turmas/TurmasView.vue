@@ -11,6 +11,7 @@ onMounted(() => {
 })
 
 
+
 </script>
 
 <template>
@@ -28,7 +29,7 @@ onMounted(() => {
     :key="turma.id"
     :materia="turma.curso?.nome || 'Curso Desconhecido'"
     :turma="turma.nome"
-    :cor="turma.curso?.cor || '#00E88F'"
+    :cor="turma.curso?.cor || '#00000'"
     :image="turma?.image || 'src/assets/chapeu.png'"
     :id="turma.id"
   />

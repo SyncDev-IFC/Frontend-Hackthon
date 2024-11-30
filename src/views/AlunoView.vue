@@ -1,5 +1,5 @@
 <script setup>
-import { alunoComponent, notasComponent, ocorrenciaComponent, CardModal } from "@/components";
+import { alunoComponent, notasComponent, ocorrenciaComponent } from "@/components";
 import { useAlunoStore } from '@/stores'  
 import { ref, onMounted, defineProps } from 'vue'
 

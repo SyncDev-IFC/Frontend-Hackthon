@@ -9,6 +9,19 @@ class AuthService {
       console.log(error);
     }
   }
+  async getMeUser(authToken) {
+    try {
+        const response = await axios.get('/usuarios/me', {
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar o usuário logado:", error);
+        throw error;  
+    }
+}
   async LoginUser(credentials) {
     try {
       const response = await axios.post("/login/", credentials);

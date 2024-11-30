@@ -14,7 +14,6 @@ import resetComponent from "./auth/resetComponent.vue"
 import CardCurso from "./cards/CardCurso.vue"
 import FooterComponent from "./ComponentsPrincipais/FooterComponent.vue"
 import CardInformatica from "./cards/CardInformatica.vue"
-import CardModal from "./cards/CardModal.vue"
 
 
 export {
@@ -35,7 +34,5 @@ export {
     FooterComponent,
     CardInformatica,
     
-    resetComponent, 
-    CardModal
 }
 

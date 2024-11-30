@@ -13,6 +13,7 @@ import  ResetPasswordView  from '@/views/auth/ResetPasswordView.vue';
 import CursosView from '@/views/CursosView.vue';
 import TurmaInfoView from '@/views/turmas/TurmaInfoView.vue';
 import { components } from 'vuetify/dist/vuetify-labs.js';
+import UserMe from '@/views/UserMe.vue';
 
 const routes = [
   {
@@ -77,6 +78,11 @@ const routes = [
     name: 'Informática',
     component: TurmaInfoView, 
   },
+  {
+    path: '/user-me',
+    name: 'UserMe',
+    component: UserMe,
+  }
 ];
 
 const router = createRouter({

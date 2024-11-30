@@ -1,5 +1,13 @@
 <script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
 const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
   nome: {
     type: String,
     required: true,
@@ -14,6 +22,9 @@ const props = defineProps({
       "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/09/GettyImages-1668971338-e1694439970587.jpg?w=1200&h=900&crop=1",
   },
 });
+const verAluno = () => {
+  router.push({ name: 'Aluno', params: { id: props.id } });
+};
 </script>
 
 <template>
@@ -29,7 +40,7 @@ const props = defineProps({
         <!-- <h4>Ana Clara Gomes</h4>
         <h5>gomes06anaclara@gmail.com</h5> -->
       </div>
-        <button class="button"  @click="">Ver aluno</button></div>
+        <button class="button" @click="verAluno">Ver aluno</button></div>
   </div>
 </template>
 

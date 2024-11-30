@@ -34,13 +34,18 @@ onMounted(async () => {
       </select>
     </div>
     <div class="alunosContainer">
-      <card-aluno
-        v-for="aluno in turmaStore.turma.alunos"
-        :email="aluno.email"
-        :nome="aluno.nome"
-        :foto="aluno.foto"
-      >
-      </card-aluno>
+      <div class="alunosContainer">
+  <card-aluno
+    v-for="aluno in turmaStore.turma.alunos" 
+    :key="aluno.id"
+    :email="aluno.email"
+    :nome="aluno.nome"
+    :foto="aluno.foto"
+    :id="aluno.id"
+  >
+  </card-aluno>
+</div>
+
     </div>  
     <div class="">
       
@@ -51,25 +56,41 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.alunosContainer {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebra de linha */
+  justify-content: center; /* Alinha os cards no centro */
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.card-aluno {
+  flex: 1 1 calc(25% - 20px); /* Tamanho dos cards: 25% do container, ajustado pelo gap */
+  max-width: 200px; /* Tamanho máximo do card */
+  min-width: 150px; /* Tamanho mínimo do card */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombras para destacar os cards */
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 10%; /* Ajuste lateral para centralizar o conteúdo */
+}
+
 .ordernarbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.alunosContainer {
-  display: flex;
-  align-items: center;
-  gap: 5%;
-}
-.container {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 10%;
-  padding-left: 15%;
-  padding-right: 15%;
-}
-.text{
+
+.text {
   padding: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
+
 </style>

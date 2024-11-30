@@ -4,9 +4,11 @@
 
 <template>
   <header>
+    <router-link to="/user-me">
     <div class="nav-links">
       <img class="foto" src="./../../assets/user.png" alt="">
     </div>
+    </router-link>
   </header>
 </template>
 
