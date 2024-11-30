@@ -1,5 +1,5 @@
-<script>
-import {loginComponent} from "@/components"
+<script setup>
+import { loginComponent } from '@/components';
 </script>
 <template>  
 <div class="container">
