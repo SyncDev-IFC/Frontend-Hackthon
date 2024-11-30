@@ -17,11 +17,11 @@
 
 <style scoped>
 .container-footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-family: "Inter", sans-serif;
-    padding-top: 5em;
+position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;   
+  color: #ABABAB;
 }
 .container-top {
     position: relative;
@@ -38,11 +38,6 @@
     height: 40%;
 }
 .row {
-    position: relative;
-    margin: 15px 0;
-}
-
-.row::before {
     content: '';
     display: block;
     position: absolute;
@@ -50,9 +45,12 @@
     bottom: 0;
     width: 75%;
     height: 2px;
-    background-color: black;
+    background-color: #ABABAB;
     transform: translateX(-50%);
+    position: relative;
+    margin: 15px 0;
 }
+
 
 .container-bottom {
     text-align: center;
